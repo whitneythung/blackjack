@@ -4,24 +4,32 @@
 package bj;
 import java.util.*;
 
-public class Deck extends Card {
-	private Stack<String> cards;
-	private int cardsLeft;
 
+public class Deck {
+	private Stack<Card> cards;
+	private int rank;
+	
 	//want to construct a deck with 52 cards
-	public Deck {
-		this.cards = new Stack<String>(); 
-		this.cardsLeft = 52;
+	public Deck() {
+		this.cards = new Stack<Card>();
+		//use two for loops to add in 52 cards.
+		
+		
 	}
 	
+	public Stack<Card> getCards() {
+		return this.cards;
+	}
+	
+	//public void shuffle() {
+		
+	//}
+	
 	public boolean isEmpty() {
-		if (size = 0) {
-			return true;
-		}
-		return false;
+		return this.cards.isEmpty();
 	}
 	
 	public int size() {
-		return this.cardsLeft;
+		return this.cards.size();
 	}
 }

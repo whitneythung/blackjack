@@ -1,25 +1,29 @@
 package bj;
 
 public class Card {
-	private String cardType;
-	private String suit;
-	private int value;
+	private cardType card;
+	private suit suit;
 	
-	public Card(String cardType, String suit, int value) {
-		this.cardType = cardType;
-		this.suit = suit;
-		this.value = value;
+	enum cardType{
+		Ace, King, Queen, Jack, Ten, Nine, Eight, Seven, Six, Five, Four, Three, Two, One
 	}
 	
-	public String getSuit() {
+	enum suit {
+		Spades, Hearts, Diamonds, Clubs
+	}
+	
+	public Card(cardType card, suit suit) {
+		this.card = card;
+		this.suit = suit;
+	}
+	
+	public suit getSuit() {
 		return suit;
 	}
 	
-	public String getCardtype() {
-		return cardType;
+	public cardType getCardtype() {
+		return card;
 	}
 	
-	public int getValue() {
-		return value;
-	}
+	
 }
