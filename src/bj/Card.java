@@ -4,11 +4,11 @@ public class Card {
 	private cardType card;
 	private suit suit;
 	
-	enum cardType{
-		Ace, King, Queen, Jack, Ten, Nine, Eight, Seven, Six, Five, Four, Three, Two, One
+	public enum cardType{
+		Ace, King, Queen, Jack, Ten, Nine, Eight, Seven, Six, Five, Four, Three, Two
 	}
 	
-	enum suit {
+	public enum suit {
 		Spades, Hearts, Diamonds, Clubs
 	}
 	
@@ -25,5 +25,9 @@ public class Card {
 		return card;
 	}
 	
+	//toString method to print out the enum values correctly
+	public String toString() {
+		return card + " of " + suit;
+	}
 	
 }
