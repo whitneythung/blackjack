@@ -12,9 +12,8 @@ public class Deck {
 	public Deck() {
 		this.cards = new Stack<Card>();
 		//use two for loops to add in 52 cards.
-		for (Card.cardType type : Card.cardType.values()) { //This accesses the enum cardType and enum suit from Card Class
-			//put something here to add a int value to each cardType
-			for (Card.suit suit : Card.suit.values()) { //create a new card inside
+		for (Card.CardType type : Card.CardType.values()) { //This accesses the enum cardType and enum suit from Card Class
+			for (Card.Suit suit : Card.Suit.values()) { //create a new card inside
 				cards.push(new Card(type, suit));
 			}
 		}
@@ -22,6 +21,9 @@ public class Deck {
 		System.out.println("Cards in deck: " + cards.toString());
 		shuffle();
 		System.out.println("Cards in deck: " + cards.toString());
+		
+		//figure out how to look at the value of the top card
+		System.out.println("The value of card on top of deck is " + cards.peek().getCardValue()); //cards.peek().getCardValue()
 	}
 	
 	public Stack<Card> getCards() {
