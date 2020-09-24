@@ -1,3 +1,10 @@
+/*This class represents the Card Class.
+* contents of a Card includes the card type and the suit.
+* User is able to print the contents of the card, or look at the card type or suit type.
+* Written by Whitney Thung
+* 09/23/2020
+*/
+
 package bj;
 
 import java.util.Map;
@@ -7,10 +14,10 @@ public class Card {
 	private Suit suit;
 	
 	public enum CardType{
-		Ace(11), King(10), Queen(10), Jack(10), Ten(10), Nine(9), Eight(8), Seven(7), Six(6), Five(5), Four(4), Three(3), Two(2);
+		ACE(11), KING(10), QUEEN(10), JACK(10), TEN(10), NINE(9), EIGHT(8), SEVEN(7), SIX(6), FIVE(5), FOUR(4), THREE(3), TWO(2);
 	
 		private final int value;
-		//private final int valueTwo;
+
 		private CardType(int value) {
 			this.value = value;
 		}
@@ -21,7 +28,7 @@ public class Card {
 	}
 	
 	public enum Suit {
-		Spades, Hearts, Diamonds, Clubs
+		SPADES, HEARTS, DIAMONDS, CLUBS
 	}
 	
 	public Card(CardType card, Suit suit) {
@@ -47,8 +54,6 @@ public class Card {
 		return card + " of " + suit;
 	}
 	
-	/*public int getValue(cardType type) {
-		return type; 
-	}*/
+	
 	
 }
