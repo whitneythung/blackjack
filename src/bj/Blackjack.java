@@ -85,7 +85,7 @@ public class Blackjack {
 							move = input.nextLine();
 						}
 						else { 
-							if (deck.cardIsAce() == true) //peeks at the top of the card before drawing to see if it is an Ace
+							if (deck.cardIsAce()) //peeks at the top of the card before drawing to see if it is an Ace
 							{
 								containsAce = true;
 							}
@@ -102,7 +102,7 @@ public class Blackjack {
 								move = "stand";
 							}
 							else { // if score > 21, checks to see if you have an Ace in hand to change Ace value to 1
-								if (containsAce == true) {
+								if (containsAce) {
 									playerScore -= 10;
 									System.out.println("Ace changed to value 1. ");
 									containsAce = false;
@@ -122,47 +122,46 @@ public class Blackjack {
 			
 			//Dealer's move here. Then compares each other's hand
 			if (!lost) {
-			System.out.println("\nDealer's turn. \n");
+				System.out.println("\nDealer's turn. \n");
 
-			System.out.println("Dealer opens the other card and reveals a " + dealersOtherCard + ". Dealer's score is " + dealerHand + "\n");
-			
-			while (dealerHand < 17) {
-				System.out.println("Dealer draws a card.\n");
-				System.out.println(deck.peek());
-				dealerHand += deck.draw();
-				System.out.println("\nDealer's hand: " + dealerHand + "\n");
-			}
-			
-			//Compares dealer and player's hand
-			if (dealerHand > playerScore && !(dealerHand > 21)) {
-				System.out.println("Dealer wins! You lose!\n");
-				gamesLost++;
-			}
-			else if (dealerHand > BLACK_JACK) {
-				System.out.println("Dealer bust! You win!\n");
-				gamesWon++;
-			}
-			else if (dealerHand < playerScore) {
-				System.out.println("Dealer lost! You win!\n");
-				gamesWon++;
-			}
-			else if (dealerHand == playerScore) {
-				System.out.println("Its a tie!\n");
-				gamesTied++;
-			}
-			
-			
+				System.out.println("Dealer opens the other card and reveals a " + dealersOtherCard + ". Dealer's score is " + dealerHand + "\n");
+
+				while (dealerHand < 17) {
+					System.out.println("Dealer draws a card.\n");
+					System.out.println(deck.peek());
+					dealerHand += deck.draw();
+					System.out.println("\nDealer's hand: " + dealerHand + "\n");
+				}
+
+				//Compares dealer and player's hand
+				if (dealerHand > playerScore && !(dealerHand > 21)) {
+					System.out.println("Dealer wins! You lose!\n");
+					gamesLost++;
+				}
+				else if (dealerHand > BLACK_JACK) {
+					System.out.println("Dealer bust! You win!\n");
+					gamesWon++;
+				}
+				else if (dealerHand < playerScore) {
+					System.out.println("Dealer lost! You win!\n");
+					gamesWon++;
+				}
+				else if (dealerHand == playerScore) {
+					System.out.println("Its a tie!\n");
+					gamesTied++;
+				}
 			}
 		}
 		else {
 			System.out.println("Invalid Answer, type 'yes' or 'no'");
 		}
 		
-	} //END GAME
+	} //END GAME results
 		System.out.println("Game Over! Thank you for playing.\n");
 		System.out.println("Games played: " + numberOfGames);
 		System.out.println("Games won: " + gamesWon);
 		System.out.println("Games lost: " + gamesLost);
+		System.out.println("Games tied: " + gamesTied);
 }
 	
 	public static int add(int card1, int card2) {
@@ -170,30 +169,15 @@ public class Blackjack {
 	}
 	
 	public static boolean validHitStatement(String str) {
-		if (str.equalsIgnoreCase("hit")){
-			return true;
-		}
-		else if (str.equalsIgnoreCase("h")){
-			return true;
-		}
-		return false;
+		return (str.equalsIgnoreCase("hit") || str.equalsIgnoreCase("h") ? true : false);
 	}
 	
 	public static boolean validStandStatement(String str) {
-		if (str.equalsIgnoreCase("stand")){
-			return true;
-		}
-		else if (str.equalsIgnoreCase("s")){
-			return true;
-		}
-		return false;
+		return (str.equalsIgnoreCase("stand") || str.equalsIgnoreCase("s") ? true : false);
 	}
 	
 	public static boolean handHasAce(int card1, int card2) {
-		if (card1 == 11 || card1 == 11) {
-			return true;
-		}
-		return false;
+		return (card1 == 11 || card2 == 11 ? true : false);
 	}
 	
 }
