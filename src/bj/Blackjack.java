@@ -122,9 +122,9 @@ public class Blackjack {
 			
 			//Dealer's move here. Then compares each other's hand
 			if (!lost) {
-			System.out.println("\nDealer turn. \n");
+			System.out.println("\nDealer's turn. \n");
 
-			System.out.println("Dealer opens the other card and reveals a " + dealersOtherCard + ". Dealer score is " + dealerHand + "\n");
+			System.out.println("Dealer opens the other card and reveals a " + dealersOtherCard + ". Dealer's score is " + dealerHand + "\n");
 			
 			while (dealerHand < 17) {
 				System.out.println("Dealer draws a card.\n");
