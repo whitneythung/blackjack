@@ -33,7 +33,7 @@ public class Blackjack {
 				System.out.println("Would you like to play a game?");
 			}
 			//Different prompt if its not your first game
-			//there is a bug here where if i hit another card, it prompts me to this statement.
+			//there is a bug here where if I hit another card, it prompts me to this statement.
 			else { 
 				System.out.println(player + ", would you like to play again?");
 			}
@@ -209,17 +209,9 @@ public class Blackjack {
 		else {
 			System.out.println("Invalid Answer, type 'yes' or 'no'");
 		}
-		
-	} //END GAME results
-		System.out.println("Game Over! Thank you for playing.\n");
-		Thread.sleep(1000);
-		System.out.println("Games played: " + numberOfGames);
-		Thread.sleep(1000);
-		System.out.println("Games won: " + gamesWon);
-		Thread.sleep(1000);
-		System.out.println("Games lost: " + gamesLost);
-		Thread.sleep(1000);
-		System.out.println("Games tied: " + gamesTied);
+	}
+		//prints out the game results
+		endGameMessage(numberOfGames, gamesWon, gamesLost, gamesTied);
 }
 	
 	public static int add(int card1, int card2) {
@@ -237,5 +229,16 @@ public class Blackjack {
 	public static boolean handHasAce(int card1, int card2) {
 		return (card1 == 11 || card2 == 11);
 	}
-	
+
+	public static void endGameMessage(int numberOfGames, int gamesWon, int gamesLost, int gamesTied) throws InterruptedException {
+		System.out.println("Game Over! Thank you for playing.\n");
+		Thread.sleep(1000);
+		System.out.println("Games played: " + numberOfGames);
+		Thread.sleep(1000);
+		System.out.println("Games won: " + gamesWon);
+		Thread.sleep(1000);
+		System.out.println("Games lost: " + gamesLost);
+		Thread.sleep(1000);
+		System.out.println("Games tied: " + gamesTied);
+	}
 }
